@@ -12,6 +12,5 @@ export default function handler(req, res) {
 		type: "url2png",
 		sign_url: true,
 	});
-	console.log(req.body.url);
 	res.status(200).json({ name: imageShot });
 }

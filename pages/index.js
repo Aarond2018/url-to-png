@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import axios from "axios";
 
@@ -17,6 +16,7 @@ export default function Home() {
 	};
 
 	const handleOnGenerate = () => {
+    console.log(screenShotUrl)
 		getImageEl();
 	};
 
@@ -30,11 +30,11 @@ export default function Home() {
 				type="text"
 				onChange={setInputUrl}
 				value={url}
-				placeholder="Enter Url or paste Url"
+				placeholder="Enter a valid Url or paste Url that begins with http(s)://"
 			></input>
 			<button onClick={handleOnGenerate}>Generate Snapshot</button>
 			<div className={styles.imageWrapper}>
-				{!!screenShotUrl ? <img src={screenShotUrl} alt="screenshot" /> : null}
+				{screenShotUrl ? <img src={screenShotUrl} alt="screenshot" /> : null}
 			</div>
 		</div>
 	);
